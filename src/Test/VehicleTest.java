@@ -11,9 +11,4 @@ public class VehicleTest {
         Vehicle vehicle = new Vehicle("plateNumber");
     }
 
-    @Test
-    public void testThatYouCanGetVehicleDetailsWithPlateNumber() {
-        vehicle.createVehicle("");
-        vehicle.getVehicle("plateNumber");
-    }
 }

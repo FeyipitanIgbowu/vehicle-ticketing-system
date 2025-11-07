@@ -17,4 +17,10 @@ public enum Offense {
     public int getFineAmount() {
         return fineAmount;
     }
+
+    public String getName() {
+        String lower = name().toLowerCase().replace("_", " ");
+        return Character.toUpperCase(lower.charAt(0)) + lower.substring(1);
+    }
+
 }

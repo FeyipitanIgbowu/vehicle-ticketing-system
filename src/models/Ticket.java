@@ -6,29 +6,55 @@ public class Ticket {
     int ticketId;
     Vehicle vehicle;
     Offense offense;
-    boolean hasPaid = false;
+    private boolean hasPaid = false;
     Officer issuer;
-    LocalDateTime dateOfBooking;
-    LocalDateTime dateOfPayment;
+    private LocalDateTime dateOfBooking;
+    private LocalDateTime dateOfPayment;
 
 
-    public Ticket(Vehicle vehicle,  Offense offense, Officer issuer, int ticketID){
+    public Ticket(Vehicle vehicle, Offense offense, Officer issuer, int ticketID) {
         this.vehicle = vehicle;
         this.offense = offense;
         this.issuer = issuer;
         this.ticketId = ticketID;
+        this.dateOfBooking = LocalDateTime.now();
     }
 
-    public void payFine(int ticketID){
-        if(this.ticketId == ticketID){
+    public void payFine(int ticketID) {
+        if (this.ticketId == ticketID) {
             this.hasPaid = true;
             dateOfPayment = LocalDateTime.now();
+
+        } else {
+            throw new IncorrectTicketIdException("Incorrect ticket id");
         }
-        throw new IncorrectTicketIdException("Incorrect ticket id");
     }
 
-    public int viewFine(Offense offense) {
+    public int viewFine() {
         return offense.getFineAmount();
+    }
+
+    public boolean hasPaid() {
+        return hasPaid;
+    }
+
+    public LocalDateTime getDateOfPayment() {
+        return dateOfPayment;
+    }
+
+    public int getTicketId() {
+        return ticketId;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket ID: " + ticketId +
+                "\nOffense: " + offense.getName() +
+                "\nFine: " + offense.getFineAmount() +
+                "\nIssued by: " + issuer.getName() +
+                "\nBooking date: " + dateOfBooking +
+                "\nPaid: " + hasPaid +
+                (hasPaid ? "\nPayment date: " + dateOfPayment : "");
     }
 
 }
