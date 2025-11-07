@@ -3,11 +3,11 @@ import Exception.IncorrectTicketIdException;
 import java.time.LocalDateTime;
 
 public class Ticket {
-    int ticketId;
-    Vehicle vehicle;
-    Offense offense;
+    private int ticketId;
+    private Vehicle vehicle;
+    private Offense offense;
     private boolean hasPaid = false;
-    Officer issuer;
+    private Officer issuer;
     private LocalDateTime dateOfBooking;
     private LocalDateTime dateOfPayment;
 
