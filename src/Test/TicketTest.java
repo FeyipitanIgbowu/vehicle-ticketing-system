@@ -1,12 +1,12 @@
 package Test;
 
-import models.Offense;
-import models.Officer;
-import models.Ticket;
-import models.Vehicle;
+import data.models.Offense;
+import data.models.Officer;
+import data.models.Ticket;
+import data.models.Vehicle;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import Exception.IncorrectTicketIdException;
+import data.Exception.IncorrectTicketIdException;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TicketTest {
@@ -29,14 +29,14 @@ public class TicketTest {
 
     @Test
     public void testThatYouCanPayFineWithCorrectTicketId(){
-        ticket.payFine(12);
+        ticket.payFine(12, 50000 );
         assertTrue(ticket.hasPaid());
         assertNotNull(ticket.getDateOfPayment());
     }
 
     @Test
     public void testThatYouCannotPayFineWithWrongTicketId(){
-        assertThrows(IncorrectTicketIdException.class, () -> ticket.payFine(0));
+        assertThrows(IncorrectTicketIdException.class, () -> ticket.payFine(0, 50000));
         assertFalse(ticket.hasPaid());
         assertNull(ticket.getDateOfPayment());
 

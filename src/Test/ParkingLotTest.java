@@ -1,19 +1,19 @@
 package Test;
 
-import models.ParkingLot;
-import models.Vehicle;
+import data.repository.Vehicles;
+import data.models.Vehicle;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import Exception.VehicleAlreadyParkedException;
+import data.Exception.VehicleAlreadyParkedException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
-    private ParkingLot parkingLot;
+    private Vehicles parkingLot;
 
     @BeforeEach
     void setUp() {
-        parkingLot = new ParkingLot();
+        parkingLot = new Vehicles();
     }
 
     @Test
@@ -23,7 +23,7 @@ public class ParkingLotTest {
 
     @Test
     public void testYouAddCarToParkingLot() {
-        ParkingLot parkingLot = new ParkingLot();
+        Vehicles parkingLot = new Vehicles();
         Vehicle vehicle = new Vehicle("plateNumber");
         parkingLot.addCar(vehicle);
         assertEquals(1, parkingLot.size());

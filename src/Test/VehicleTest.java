@@ -1,8 +1,7 @@
 package Test;
 
-import models.Vehicle;
+import data.models.Vehicle;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 public class VehicleTest {
 

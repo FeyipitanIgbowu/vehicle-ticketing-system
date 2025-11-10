@@ -1,4 +1,4 @@
-package models;
+package data.models;
 
 public class Officer {
     private int id;
@@ -16,18 +16,22 @@ public class Officer {
     }
 
     public String getName() {
+
         return name;
     }
 
     public String getRank() {
+
         return rank;
     }
 
     public String getUsername() {
+
         return username;
     }
 
     public String getPassword() {
+
         return password;
     }
 }

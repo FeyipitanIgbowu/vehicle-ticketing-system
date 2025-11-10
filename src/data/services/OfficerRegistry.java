@@ -1,9 +1,9 @@
-package services;
+package data.services;
 
-import models.Officer;
+import data.models.Officer;
 import java.util.HashMap;
 import java.util.Map;
-import Exception.InvalidOfficerValidationException;
+import data.Exception.InvalidOfficerValidationException;
 
 public class OfficerRegistry {
 

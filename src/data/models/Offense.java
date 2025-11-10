@@ -1,4 +1,4 @@
-package models;
+package data.models;
 
 public enum Offense {
     ONE_WAY(2000),
@@ -7,7 +7,7 @@ public enum Offense {
     OVER_SPEEDING(10000),
     ;
 
-    private final int fineAmount;
+    private int fineAmount;
 
     Offense(int fineAmount) {
         this.fineAmount = fineAmount;
