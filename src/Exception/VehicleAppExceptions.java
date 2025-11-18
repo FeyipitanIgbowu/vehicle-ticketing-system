@@ -1,4 +1,4 @@
-package data.Exception;
+package Exception;
 
 public class VehicleAppExceptions extends RuntimeException {
     public VehicleAppExceptions(String message) {

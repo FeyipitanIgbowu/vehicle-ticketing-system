@@ -1,41 +1,67 @@
 package data.repository;
-import data.Exception.VehicleAlreadyParkedException;
+import Exception.IncorrectVehicleIdException;
 import data.models.Vehicle;
-
 import java.util.ArrayList;
 
-public class Vehicles {
+public class Vehicles implements VehiclesRepository {
 
-    private ArrayList<Vehicle> vehicles;
-    public Vehicles(){
-    vehicles = new ArrayList<>();
+    private static ArrayList<Vehicle> vehicles;
+    private static int count;
+
+    public Vehicles() {
+        vehicles = new ArrayList<>();
+        count = 0;
     }
 
-    public boolean isEmpty() {
-        return vehicles.isEmpty();
+    public Vehicle save(Vehicle vehicle) {
+        if (!vehicles.contains(vehicle)) {
+            generateID();
+            vehicle.setId(count);
+            vehicles.add(vehicle);
+        }
+        return vehicle;
     }
 
-    public void addCar(Vehicle vehicle) {
-        this.contains(vehicle);
-        vehicles.add(vehicle);
+    public Vehicle findByID(int id) {
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getId() == id) {
+                vehicles.add(vehicle);
+                return vehicle;
+            }
+        }
+        return null;
     }
 
-    public int size() {
-        return vehicles.size();
+    public ArrayList<Vehicle> findAll() {
+        return vehicles;
     }
 
-    public void removeCar(Vehicle vehicle) {
+    public void deleteById(int id) {
+        vehicles.removeIf(vehicle -> vehicle.getId() == id);
+    }
+
+    public void deleteAll() {
+        vehicles.clear();
+    }
+
+    public void delete(Vehicle vehicle) {
         vehicles.remove(vehicle);
     }
 
-    public void contains(Vehicle vehicle) {
-        if (vehicles.contains(vehicle)) {
-            throw new VehicleAlreadyParkedException("Vehicle is Already Parked");
-        }
+    public long count() {
+        return vehicles.size();
     }
 
-    @Override
-    public String toString() {
-        return vehicles.toString();
+    public void generateID(){
+        count++;
+    }
+
+    public Vehicle findByChasisNumber(String chasisNumber){
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getChasisNumber().equals(chasisNumber)) {
+                return vehicle;
+            }
+        }
+        return null;
     }
 }

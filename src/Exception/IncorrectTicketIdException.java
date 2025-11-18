@@ -1,4 +1,4 @@
-package data.Exception;
+package Exception;
 
 public class IncorrectTicketIdException extends VehicleAppExceptions {
     public IncorrectTicketIdException(String message) {

@@ -1,4 +1,4 @@
-package data.Exception;
+package Exception;
 
 public class ParkingLotException extends VehicleAppExceptions {
     public ParkingLotException(String message) {

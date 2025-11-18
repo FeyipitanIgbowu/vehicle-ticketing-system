@@ -1,4 +1,4 @@
-package data.Exception;
+package Exception;
 
 public class InvalidOfficerValidationException extends VehicleAppExceptions {
     public InvalidOfficerValidationException(String message) {
